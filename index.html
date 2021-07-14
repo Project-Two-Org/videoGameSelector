@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Video Game Selector</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#selection">Selection</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+      <h1>Video Game Selector</h1>
+    </header>
+
+    <main>
+      <section id="selection">
+        <form action="GET">
+          <label for="platforms"></label>
+          <select name="platforms" id="platforms"></select>
+          <select name="genres" id="genres"></select>
+          <br /><br />
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+
+      <section id="gallery">
+        <ul></ul>
+      </section>
+    </main>
+
+    <footer>
+      <a href="junocollege.com"
+        >Created by Denzel and Michael at Juno College ©</a
+      >
+    </footer>
+    <script src="app.js"></script>
+  </body>
 </html>
