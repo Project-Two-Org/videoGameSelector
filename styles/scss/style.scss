@@ -1,12 +1,33 @@
 @import "setup";
 
 html {
-  background-color: cornflowerblue;
+  background-color: gray;
+  text-align: center;
 }
 .wrapper {
   max-width: 1440px;
   width: 90%;
   margin: 0 auto;
+}
+nav{
+    background-color: black;
+    width: 100vw;
+    height: 5vh;
+}
+header ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+header li {
+    
+}
+header li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
 }
 img {
   width: 20vw;
@@ -19,16 +40,36 @@ img {
   justify-content: space-around;
   align-items: flex-start;
 }
+.gallery ul{
+     padding:10px;
+}
 .gallery li {
-  background-color: cornsilk;
-  border: 5px solid sandybrown;
+  background-color:cornsilk;
+  border: 15px solid darkgrey;
   margin: 10px 0;
-  list-style-type: none;
-  overflow:hidden
+  width: 20vw;
+  overflow:hidden;
 }
 .gallery li p {
-  width: 20vw;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+}
+.name{
+    font-weight: bolder;
+    text-align: center;
 }
 .hide {
     display: none;
+}
+footer{
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+footer a {
+    text-align:center;
+    display:block;
+    color: white;
 }
