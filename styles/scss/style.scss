@@ -1,1 +1,28 @@
 @import 'setup';
+
+html{
+    background-color: cornflowerblue;
+}
+.wrapper {
+    max-width: 1440px;
+    width: 90%;
+    margin: 0 auto;
+}
+img{
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.gallery li{
+    background-color: cornsilk;
+    border: 5px solid sandybrown;
+    margin: 10px 0;
+}
+.gallery li p{
+    width: 20vw;
+}
