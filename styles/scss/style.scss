@@ -1,28 +1,34 @@
-@import 'setup';
+@import "setup";
 
-html{
-    background-color: cornflowerblue;
+html {
+  background-color: cornflowerblue;
 }
 .wrapper {
-    max-width: 1440px;
-    width: 90%;
-    margin: 0 auto;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
 }
-img{
-    width: 20vw;
-    height: 20vw;
-    object-fit: cover;
+img {
+  width: 20vw;
+  height: 20vw;
+  object-fit: cover;
 }
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
 }
-.gallery li{
-    background-color: cornsilk;
-    border: 5px solid sandybrown;
-    margin: 10px 0;
+.gallery li {
+  background-color: cornsilk;
+  border: 5px solid sandybrown;
+  margin: 10px 0;
+  list-style-type: none;
+  overflow:hidden
 }
-.gallery li p{
-    width: 20vw;
+.gallery li p {
+  width: 20vw;
+}
+.hide {
+    display: none;
 }

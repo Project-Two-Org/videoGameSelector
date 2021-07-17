@@ -136,6 +136,7 @@ gameSelectorApp.displayGames = (dataGames) => {
   gallery.innerHTML = "";
   dataGames.forEach((game) => {
     const newGame = document.createElement("li");
+
     const gamePhoto = document.createElement("img");
     gamePhoto.setAttribute("src", game.short_screenshots[0].image);
     gamePhoto.setAttribute("alt", `The image of game: ${game.name}`);
@@ -145,22 +146,33 @@ gameSelectorApp.displayGames = (dataGames) => {
     for (let i = 0; i < game.platforms.length; i++) {
       gamePlatform.textContent += game.platforms[i].platform.name + " ";
     }
+    gamePlatform.classList.add("hide");
     const gameGenre = document.createElement("p");
     for (let j = 0; j < game.genres.length; j++) {
       gameGenre.textContent += game.genres[j].name + " ";
     }
+    gameGenre.classList.add("hide");
     const gameDate = document.createElement("p");
     gameDate.textContent = game.released;
+    gameDate.classList.add("hide");
     newGame.appendChild(gamePhoto);
     newGame.appendChild(gameName);
     newGame.appendChild(gamePlatform);
     newGame.appendChild(gameGenre);
     newGame.appendChild(gameDate);
+    newGame.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("1");
+      gamePlatform.classList.toggle("hide");
+      gameGenre.classList.toggle("hide");
+      gameDate.classList.toggle("hide");
+    });
+
     gallery.append(newGame);
   });
 };
 
-gameSelectorApp.showDetails = () => {};
+gameSelectorApp.showDetails = (elementId) => {};
 
 gameSelectorApp.init = () => {
   gameSelectorApp.fetchGameType("platforms");
