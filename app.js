@@ -142,18 +142,19 @@ gameSelectorApp.displayGames = (dataGames) => {
     gamePhoto.setAttribute("alt", `The image of game: ${game.name}`);
     const gameName = document.createElement("p");
     gameName.textContent = game.name;
+    gameName.classList.add('name')
     const gamePlatform = document.createElement("p");
     for (let i = 0; i < game.platforms.length; i++) {
-      gamePlatform.textContent += game.platforms[i].platform.name + " ";
+      gamePlatform.textContent += "Platform: "+ game.platforms[i].platform.name + " ";
     }
     gamePlatform.classList.add("hide");
     const gameGenre = document.createElement("p");
     for (let j = 0; j < game.genres.length; j++) {
-      gameGenre.textContent += game.genres[j].name + " ";
+      gameGenre.textContent += "Genre: " + game.genres[j].name + " ";
     }
     gameGenre.classList.add("hide");
     const gameDate = document.createElement("p");
-    gameDate.textContent = game.released;
+    gameDate.textContent = "Released Date: " + game.released;
     gameDate.classList.add("hide");
     newGame.appendChild(gamePhoto);
     newGame.appendChild(gameName);
@@ -162,7 +163,6 @@ gameSelectorApp.displayGames = (dataGames) => {
     newGame.appendChild(gameDate);
     newGame.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("1");
       gamePlatform.classList.toggle("hide");
       gameGenre.classList.toggle("hide");
       gameDate.classList.toggle("hide");
@@ -171,8 +171,6 @@ gameSelectorApp.displayGames = (dataGames) => {
     gallery.append(newGame);
   });
 };
-
-gameSelectorApp.showDetails = (elementId) => {};
 
 gameSelectorApp.init = () => {
   gameSelectorApp.fetchGameType("platforms");
