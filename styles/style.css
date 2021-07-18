@@ -482,8 +482,8 @@ span {
 
 .slideShow {
   position: relative;
-  width: 1200px;
-  height: 600px;
+  width: 90vw;
+  height: 60vh;
   margin: 0 auto;
   -webkit-box-shadow: 0 0 5px white;
           box-shadow: 0 0 5px white;

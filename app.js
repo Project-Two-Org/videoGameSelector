@@ -222,7 +222,7 @@ gameSelectorApp.createSlideShow = () => {
       }
       const allOfThem = document.querySelectorAll("#slideShow .slides");
       let current = 0;
-      setInterval(autoSlide, 1000);
+      setInterval(autoSlide, 2000);
       function autoSlide() {
         current = (current + 1) % allOfThem.length;
         if (current == 9) {
