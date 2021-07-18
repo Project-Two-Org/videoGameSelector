@@ -198,13 +198,11 @@ span {
 
 .slideShow {
   position: relative;
-  width: 90vw;
-  height: 60vh;
+  width: 80%;
+  height: 50%;
   margin: 0 auto;
-  box-shadow: 0 0 5px white;
   overflow: hidden;
   display: block;
-  background-color: #000000;
 }
 
 .slideShow li {
@@ -216,9 +214,8 @@ span {
 }
 
 .slideShow img{
-  height: 100%;
   width: 100%;
-  object-fit: cover;
+  height: 100%;
 }
 
 footer {

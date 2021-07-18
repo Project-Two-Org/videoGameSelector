@@ -203,14 +203,14 @@ gameSelectorApp.createSlideShow = () => {
 
   url.search = new URLSearchParams({
     key: gameSelectorApp.apiKey,
-    page_size: 10,
+    page_size: 5,
   });
   fetch(url)
     .then((res) => {
       return res.json();
     })
     .then((data) => {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 5; i++) {
         const newSlide = document.createElement("li");
         const slideImage = document.createElement("img");
         slideImage.setAttribute("src", data.results[i].background_image);
@@ -225,8 +225,8 @@ gameSelectorApp.createSlideShow = () => {
       setInterval(autoSlide, 2000);
       function autoSlide() {
         current = (current + 1) % allOfThem.length;
-        if (current == 9) {
-          allOfThem[9].classList.add("hide");
+        if (current == 4) {
+          allOfThem[4].classList.add("hide");
           allOfThem[0].classList.remove("hide");
           current === 0;
         } else {
