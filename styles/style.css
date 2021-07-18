@@ -237,7 +237,8 @@ html {
 
 html {
   font-size: 62.5%;
-  background: black url(../images/websiteBackground.png);
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(../images/websiteBackground.png);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/websiteBackground.png);
   text-align: center;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -245,11 +246,8 @@ html {
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
   position: relative;
   font-family: "Cinzel", serif;
   font-weight: 400;
@@ -376,7 +374,7 @@ img {
 }
 
 .gallery li {
-  border: 3px solid rgba(245, 245, 245, 0.4);
+  border: 3px solid rgba(245, 245, 245, 0.7);
   margin: 10px 0;
   width: 20vw;
   overflow: hidden;
