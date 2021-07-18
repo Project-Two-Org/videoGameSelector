@@ -3,10 +3,10 @@
 
 html {
   font-size: 62.5%;
-  background: rgba($color: #000000, $alpha: 1.0) url(../images/websiteBackground.png);
+  background: rgba($color: #000000, $alpha: 1)
+    url(../images/websiteBackground.png);
   text-align: center;
   height: fit-content;
-
 }
 body {
   background-color: rgba($color: #000000, $alpha: 0.5);
@@ -29,11 +29,10 @@ ul {
   padding: 0;
   margin: 0;
 }
- 
+
 a {
   color: white;
   text-decoration: none;
-
 }
 
 p {
@@ -52,7 +51,7 @@ p {
 header {
   height: 100vh;
 }
-nav{
+nav {
   background-color: rgba($color: #000000, $alpha: 0.7);
   width: 100%;
   height: 5vh;
@@ -60,10 +59,9 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-nav ul{
+nav ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
@@ -79,8 +77,15 @@ nav li a {
   font-size: 1.5rem;
   padding: 0 20px;
 }
-nav li a:hover, nav li a:focus {
+nav li a:hover,
+nav li a:focus {
   color: goldenrod;
+}
+
+select {
+  width: 20%;
+  height: 5vh;
+  font-size: 2rem;
 }
 
 [type="submit"] {
@@ -92,12 +97,13 @@ nav li a:hover, nav li a:focus {
   font-weight: 400;
   transition: all 0.3s ease-out;
 }
-[type="submit"]:hover, [type="submit"]:focus {
+[type="submit"]:hover,
+[type="submit"]:focus {
   color: goldenrod;
   transform: scale(1.2);
 }
 [type="submit"]:active {
-  transform: scale(0.9)
+  transform: scale(0.9);
 }
 
 img {
@@ -112,7 +118,6 @@ img {
   justify-content: space-around;
   align-items: flex-start;
   padding: 30px 10px;
-
 }
 
 .gallery li {
@@ -127,7 +132,8 @@ img {
   align-items: center;
   transition: all 0.3s ease-out;
 }
-.gallery li:hover, .gallery li:focus {
+.gallery li:hover,
+.gallery li:focus {
   transform: scale(1.1);
   .gameNameDiv {
     display: none;
@@ -148,7 +154,6 @@ img {
   background-color: rgba($color: #000000, $alpha: 0.8);
   letter-spacing: 2px;
 }
-
 
 .name {
   font-family: $Cinzel;
@@ -184,7 +189,30 @@ span {
   padding-top: 5px;
 }
 
-footer{
+.slideShow {
+  position: relative;
+  width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 5px green;
+  overflow: hidden;
+  display: block;
+}
+
+.slideShow li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: absolute;
+}
+
+.onShow{
+  display: none;
+}
+
+
+footer {
   background-color: rgba($color: #000000, $alpha: 0.7);
   position: fixed;
   bottom: 0;
@@ -196,7 +224,7 @@ footer{
   justify-content: center;
 }
 footer a {
-  text-align:center;
-  display:block;
+  text-align: center;
+  display: block;
   color: white;
 }
