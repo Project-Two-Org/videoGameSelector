@@ -325,8 +325,15 @@ nav li a {
   padding: 0 20px;
 }
 
-nav li a:hover, nav li a:focus {
+nav li a:hover,
+nav li a:focus {
   color: goldenrod;
+}
+
+select {
+  width: 20%;
+  height: 5vh;
+  font-size: 2rem;
 }
 
 [type=submit] {
@@ -340,7 +347,8 @@ nav li a:hover, nav li a:focus {
   transition: all 0.3s ease-out;
 }
 
-[type=submit]:hover, [type=submit]:focus {
+[type=submit]:hover,
+[type=submit]:focus {
   color: goldenrod;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
@@ -396,11 +404,13 @@ img {
   transition: all 0.3s ease-out;
 }
 
-.gallery li:hover, .gallery li:focus {
+.gallery li:hover,
+.gallery li:focus {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-.gallery li:hover .gameNameDiv, .gallery li:focus .gameNameDiv {
+.gallery li:hover .gameNameDiv,
+.gallery li:focus .gameNameDiv {
   display: none;
 }
 
@@ -468,6 +478,28 @@ span {
   font-size: calc(0.6rem + 1vw);
   font-weight: bolder;
   padding-top: 5px;
+}
+
+.slideShow {
+  position: relative;
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+}
+
+.slideShow li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: absolute;
+}
+
+.slideShow img {
+  width: 100%;
+  height: 100%;
 }
 
 footer {

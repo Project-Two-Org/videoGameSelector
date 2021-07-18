@@ -18,7 +18,6 @@ gameSelectorApp.fetchGameType = (type) => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       if (type === "platforms") {
         gameSelectorApp.displayType(data);
       } else if (type === "genres") {
@@ -55,6 +54,8 @@ gameSelectorApp.fetchRandomGame = () => {
 
   formEl.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    document.getElementById("slideShow").style.display='none';
 
     const platformChoiceVal = document.querySelector(
       '[name="platforms"] option:checked'
@@ -140,63 +141,109 @@ gameSelectorApp.displayGames = (dataGames) => {
     const gamePhoto = document.createElement("img");
     gamePhoto.setAttribute("src", game.short_screenshots[0].image);
     gamePhoto.setAttribute("alt", `The image of game: ${game.name}`);
-    
+
     const gameName = document.createElement("p");
     const gameNameForDetails = document.createElement("p");
     gameName.textContent = game.name;
     gameNameForDetails.textContent = game.name;
-    gameName.classList.add('name')
-    gameNameForDetails.classList.add('name','nameForDetails')
+    gameName.classList.add("name");
+    gameNameForDetails.classList.add("name", "nameForDetails");
 
     // Changed to inner html to select titles for styling
     const gamePlatform = document.createElement("p");
     gamePlatform.innerHTML = "<span class='block'>Platform: </span>";
     for (let i = 0; i < game.platforms.length; i++) {
-      gamePlatform.innerHTML += "-"+ game.platforms[i].platform.name + "- ";
+      gamePlatform.innerHTML += "-" + game.platforms[i].platform.name + "- ";
     }
-    
+
     const gameGenre = document.createElement("p");
     gameGenre.innerHTML = "<span class='block'>Genre: </span>";
     for (let j = 0; j < game.genres.length; j++) {
       gameGenre.innerHTML += "-" + game.genres[j].name + "- ";
     }
-    
+
     // Added if statement to change 'null' to N/A (null looks like an error)
     const gameDate = document.createElement("p");
     let gameRelease = game.released;
     if (gameRelease === null) {
-      gameRelease = "N/A"
+      gameRelease = "N/A";
     }
-    gameDate.innerHTML = "<span class='block'>Released Date: </span>" + gameRelease;
+    gameDate.innerHTML =
+      "<span class='block'>Released Date: </span>" + gameRelease;
 
-    const displayInfoDiv = document.createElement('div');
+    const displayInfoDiv = document.createElement("div");
     displayInfoDiv.appendChild(gameNameForDetails);
     displayInfoDiv.appendChild(gamePlatform);
     displayInfoDiv.appendChild(gameGenre);
     displayInfoDiv.appendChild(gameDate);
     displayInfoDiv.classList.add("displayInfo", "hide");
 
-    const gameNameDiv = document.createElement('div');
+    const gameNameDiv = document.createElement("div");
     gameNameDiv.appendChild(gameName);
     gameNameDiv.classList.add("gameNameDiv");
-    
+
     newGame.appendChild(gamePhoto);
     newGame.appendChild(gameNameDiv);
     newGame.appendChild(displayInfoDiv);
-    
-    
-    newGame.addEventListener('click', () => {
+
+    newGame.addEventListener("click", () => {
       displayInfoDiv.classList.toggle("hide");
       gameNameDiv.classList.toggle("hide");
     });
 
     gallery.append(newGame);
   });
+
+  const body = document.querySelector("body");
+  body.classList.add("body");
+};
+
+gameSelectorApp.createSlideShow = () => {
+  const slideShow = document.getElementById("slideShow");
+  const url = new URL(`${gameSelectorApp.url}games`);
+
+  url.search = new URLSearchParams({
+    key: gameSelectorApp.apiKey,
+    page_size: 5,
+  });
+  fetch(url)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      for (let i = 0; i < 5; i++) {
+        const newSlide = document.createElement("li");
+        const slideImage = document.createElement("img");
+        slideImage.setAttribute("src", data.results[i].background_image);
+        slideImage.setAttribute("alt", `Picture of slide number ${i}`);
+        newSlide.appendChild(slideImage);
+        newSlide.classList.add("slides");
+        newSlide.classList.add("hide");
+        slideShow.append(newSlide);
+      }
+      const allOfThem = document.querySelectorAll("#slideShow .slides");
+      let current = 0;
+      setInterval(autoSlide, 2000);
+      function autoSlide() {
+        current = (current + 1) % allOfThem.length;
+        if (current == 4) {
+          allOfThem[4].classList.add("hide");
+          allOfThem[0].classList.remove("hide");
+          current === 0;
+        } else {
+          allOfThem[current].classList.add("hide");
+          allOfThem[current + 1].classList.remove("hide");
+        }
+      }
+    });
+
   const body = document.querySelector('body')
   body.classList.add('body');
+
 };
 
 gameSelectorApp.init = () => {
+  gameSelectorApp.createSlideShow();
   gameSelectorApp.fetchGameType("platforms");
   gameSelectorApp.fetchGameType("genres");
 };
