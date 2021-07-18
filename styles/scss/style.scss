@@ -9,11 +9,11 @@ html {
       rgba($color: #000000, $alpha: 0.4)
     ),
     url(../images/websiteBackground.png);
+  background: linear-gradient(0deg, rgba($color: #000000, $alpha: 0.4), rgba($color: #000000, $alpha: 0.4)), url(../images/websiteBackground.png);
   text-align: center;
   height: fit-content;
 }
 body {
-
   color: white;
   height: 100%;
   position: relative;

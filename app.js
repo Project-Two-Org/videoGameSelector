@@ -193,6 +193,7 @@ gameSelectorApp.displayGames = (dataGames) => {
 
     gallery.append(newGame);
   });
+
   const body = document.querySelector("body");
   body.classList.add("body");
 };
@@ -235,6 +236,10 @@ gameSelectorApp.createSlideShow = () => {
         }
       }
     });
+
+  const body = document.querySelector('body')
+  body.classList.add('body');
+
 };
 
 gameSelectorApp.init = () => {
