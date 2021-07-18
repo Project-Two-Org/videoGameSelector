@@ -140,32 +140,54 @@ gameSelectorApp.displayGames = (dataGames) => {
     const gamePhoto = document.createElement("img");
     gamePhoto.setAttribute("src", game.short_screenshots[0].image);
     gamePhoto.setAttribute("alt", `The image of game: ${game.name}`);
+    
     const gameName = document.createElement("p");
+    const gameNameForDetails = document.createElement("p");
     gameName.textContent = game.name;
+    gameNameForDetails.textContent = game.name;
     gameName.classList.add('name')
+    gameNameForDetails.classList.add('name','nameForDetails')
+
+    // Changed to inner html to select titles for styling
     const gamePlatform = document.createElement("p");
+    gamePlatform.innerHTML = "<span class='block'>Platform: </span>";
     for (let i = 0; i < game.platforms.length; i++) {
-      gamePlatform.textContent += "Platform: "+ game.platforms[i].platform.name + " ";
+      gamePlatform.innerHTML += "-"+ game.platforms[i].platform.name + "- ";
     }
-    gamePlatform.classList.add("hide");
+    
     const gameGenre = document.createElement("p");
+    gameGenre.innerHTML = "<span class='block'>Genre: </span>";
     for (let j = 0; j < game.genres.length; j++) {
-      gameGenre.textContent += "Genre: " + game.genres[j].name + " ";
+      gameGenre.innerHTML += "-" + game.genres[j].name + "- ";
     }
-    gameGenre.classList.add("hide");
+    
+    // Added if statement to change 'null' to N/A (null looks like an error)
     const gameDate = document.createElement("p");
-    gameDate.textContent = "Released Date: " + game.released;
-    gameDate.classList.add("hide");
+    let gameRelease = game.released;
+    if (gameRelease === null) {
+      gameRelease = "N/A"
+    }
+    gameDate.innerHTML = "<span class='block'>Released Date: </span>" + gameRelease;
+
+    const displayInfoDiv = document.createElement('div');
+    displayInfoDiv.appendChild(gameNameForDetails);
+    displayInfoDiv.appendChild(gamePlatform);
+    displayInfoDiv.appendChild(gameGenre);
+    displayInfoDiv.appendChild(gameDate);
+    displayInfoDiv.classList.add("displayInfo", "hide");
+
+    const gameNameDiv = document.createElement('div');
+    gameNameDiv.appendChild(gameName);
+    gameNameDiv.classList.add("gameNameDiv");
+    
     newGame.appendChild(gamePhoto);
-    newGame.appendChild(gameName);
-    newGame.appendChild(gamePlatform);
-    newGame.appendChild(gameGenre);
-    newGame.appendChild(gameDate);
-    newGame.addEventListener("click", (e) => {
-      e.preventDefault();
-      gamePlatform.classList.toggle("hide");
-      gameGenre.classList.toggle("hide");
-      gameDate.classList.toggle("hide");
+    newGame.appendChild(gameNameDiv);
+    newGame.appendChild(displayInfoDiv);
+    
+    
+    newGame.addEventListener('click', () => {
+      displayInfoDiv.classList.toggle("hide");
+      gameNameDiv.classList.toggle("hide");
     });
 
     gallery.append(newGame);
