@@ -18,7 +18,6 @@ gameSelectorApp.fetchGameType = (type) => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       if (type === "platforms") {
         gameSelectorApp.displayType(data);
       } else if (type === "genres") {
@@ -56,7 +55,7 @@ gameSelectorApp.fetchRandomGame = () => {
   formEl.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    document.getElementById("slideShow").classList.add("hide");
+    document.getElementById("slideShow").style.display='none';
 
     const platformChoiceVal = document.querySelector(
       '[name="platforms"] option:checked'
@@ -194,6 +193,8 @@ gameSelectorApp.displayGames = (dataGames) => {
 
     gallery.append(newGame);
   });
+  const body = document.querySelector("body");
+  body.classList.add("body");
 };
 
 gameSelectorApp.createSlideShow = () => {
@@ -214,25 +215,24 @@ gameSelectorApp.createSlideShow = () => {
         const slideImage = document.createElement("img");
         slideImage.setAttribute("src", data.results[i].background_image);
         slideImage.setAttribute("alt", `Picture of slide number ${i}`);
-        // const slideName = document.createElement("p");
-        // slideName.textContent = data.results[i].name;
         newSlide.appendChild(slideImage);
-        // newSlide.appendChild(slideName);
         newSlide.classList.add("slides");
-        newSlide.classList.add('onShow')
+        newSlide.classList.add("hide");
         slideShow.append(newSlide);
       }
       const allOfThem = document.querySelectorAll("#slideShow .slides");
       let current = 0;
-      console.log(allOfThem[0]);
-      let interVal = setInterval(autoSlide, 1000);
+      setInterval(autoSlide, 1000);
       function autoSlide() {
         current = (current + 1) % allOfThem.length;
-        if (current >= 10) {
+        if (current == 9) {
+          allOfThem[9].classList.add("hide");
+          allOfThem[0].classList.remove("hide");
           current === 0;
+        } else {
+          allOfThem[current].classList.add("hide");
+          allOfThem[current + 1].classList.remove("hide");
         }
-        allOfThem[current].classList.toggle("onShow");
-        console.log(current);
       }
     });
 };

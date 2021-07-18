@@ -3,15 +3,19 @@
 
 html {
   font-size: 62.5%;
-  background: rgba($color: #000000, $alpha: 1)
+  background: linear-gradient(
+      0deg,
+      rgba($color: #000000, $alpha: 0.4),
+      rgba($color: #000000, $alpha: 0.4)
+    ),
     url(../images/websiteBackground.png);
   text-align: center;
   height: fit-content;
 }
 body {
-  background-color: rgba($color: #000000, $alpha: 0.5);
+
   color: white;
-  height: fit-content;
+  height: 100%;
   position: relative;
   font-family: $Cinzel;
   font-weight: 400;
@@ -112,6 +116,7 @@ img {
   object-fit: cover;
   z-index: -1;
 }
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -121,7 +126,7 @@ img {
 }
 
 .gallery li {
-  border: 3px solid rgba($color: whitesmoke, $alpha: 0.4);
+  border: 3px solid rgba($color: whitesmoke, $alpha: 0.7);
   margin: 10px 0;
   width: 20vw;
   overflow: hidden;
@@ -132,6 +137,7 @@ img {
   align-items: center;
   transition: all 0.3s ease-out;
 }
+
 .gallery li:hover,
 .gallery li:focus {
   transform: scale(1.1);
@@ -139,6 +145,7 @@ img {
     display: none;
   }
 }
+
 .gallery li p {
   font-size: calc(0.5rem + 1vw);
 }
@@ -194,9 +201,10 @@ span {
   width: 1200px;
   height: 600px;
   margin: 0 auto;
-  box-shadow: 0 0 5px green;
+  box-shadow: 0 0 5px white;
   overflow: hidden;
   display: block;
+  background-color: #000000;
 }
 
 .slideShow li {
@@ -207,10 +215,11 @@ span {
   position: absolute;
 }
 
-.onShow{
-  display: none;
+.slideShow img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
-
 
 footer {
   background-color: rgba($color: #000000, $alpha: 0.7);
