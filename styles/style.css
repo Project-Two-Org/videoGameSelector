@@ -239,6 +239,7 @@ html {
   font-size: 62.5%;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(../images/websiteBackground.png);
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/websiteBackground.png);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/websiteBackground.png);
   text-align: center;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -259,6 +260,8 @@ h1 {
   font-weight: 600;
   padding: 20px 0;
   text-shadow: -1.5px 1.5px rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 ul {
@@ -331,15 +334,16 @@ nav li a:focus {
 }
 
 select {
-  width: 20%;
+  width: calc(5rem + 12vw);
   height: 5vh;
-  font-size: 2rem;
+  font-size: calc(0.8rem + 1vw);
 }
 
 [type=submit] {
   border: none;
   color: white;
   padding: 10px 20px;
+  margin: 10px 0 15px 0;
   background-color: rgba(0, 0, 0, 0.4);
   font-family: "Cinzel", serif;
   font-weight: 400;
@@ -404,6 +408,21 @@ img {
   transition: all 0.3s ease-out;
 }
 
+@media (max-width: 800px) {
+  .gallery li {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+  }
+  .gallery li img {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .gallery li {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+  }
+}
 .gallery li:hover,
 .gallery li:focus {
   -webkit-transform: scale(1.1);
@@ -470,6 +489,10 @@ img {
   padding: 10px 0;
 }
 
+.displayInfo p:not(.nameForDetails span) {
+  font-size: calc(0.3rem + 0.8vw);
+}
+
 .hide {
   display: none;
 }
@@ -524,20 +547,4 @@ footer a {
   text-align: center;
   display: block;
   color: white;
-}
-
-@media (max-width:768px) {
-  .gallery li{
-    width: 40%;
-  }
-  select {
-    width: 40%;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width:414px) {
-    .gallery li{
-    width: 60%;
-  }
 }
