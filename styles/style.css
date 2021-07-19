@@ -525,3 +525,19 @@ footer a {
   display: block;
   color: white;
 }
+
+@media (max-width:768px) {
+  .gallery li{
+    width: 40%;
+  }
+  select {
+    width: 40%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:414px) {
+    .gallery li{
+    width: 60%;
+  }
+}
