@@ -131,6 +131,8 @@ gameSelectorApp.fetchRandomGame = () => {
       });
   });
 };
+// //Cycles through all images and temp removes hidden, main image just shows as it is default
+
 
 gameSelectorApp.displayGames = (dataGames) => {
   const gallery = document.getElementById("gallery");
@@ -185,6 +187,7 @@ gameSelectorApp.displayGames = (dataGames) => {
     newGame.appendChild(gamePhoto);
     newGame.appendChild(gameNameDiv);
     newGame.appendChild(displayInfoDiv);
+    newGame.setAttribute("tabindex", "0")
 
     newGame.addEventListener("click", () => {
       displayInfoDiv.classList.toggle("hide");
